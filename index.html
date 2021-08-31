@@ -1,109 +1,178 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>eMercado - Todo lo que busques está aquí</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-  </head>
-  <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <style>
+  html, body{
+    height: 100%;
+    background-image: url(img/login.png)
+}
+.card-container.card {
+    max-width: 350px;
+    padding: 40px 40px;
+}
+
+.btn {
+    font-weight: 700;
+    height: 36px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+/*
+ * Card component
+ */
+.card {
+    background-color: #F7F7F7;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/*
+ * Form styles
+ */
+.profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.reauth-email {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+}
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+}
+
+.btn.btn-signin {
+    /*background-color: #4d90fe; */
+    background-color: rgb(104, 145, 162);
+    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    -o-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -webkit-transition: all 0.218s;
+    transition: all 0.218s;
+}
+
+.btn.btn-signin:hover,
+.btn.btn-signin:active,
+.btn.btn-signin:focus {
+    background-color: rgb(12, 97, 33);
+}
+
+.forgot-password {
+    color: rgb(104, 145, 162);
+}
+
+.forgot-password:hover,
+.forgot-password:active,
+.forgot-password:focus{
+    color: rgb(12, 97, 33);
+}
+  </style>
+</head>
+
+<body>
+    <div class="container">
+      <div class="card card-container">
+          <img id="profile-img" class="profile-img-card" src="http://www.newdesignfile.com/postpic/2013/01/generic-user-icon-windows_321380.png" />
+          <p id="profile-name" class="profile-name-card"></p>
+          <form action="home.html" method="get" class="form-signin">
+              <span id="reauth-email" class="reauth-email"></span>
+              <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+              <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+              <div id="remember" class="checkbox">
+                  <label>
+                      <input type="checkbox" value="remember-me"> Recordarme
+                  </label>
+              </div>
+              <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Iniciar sesion</button>
+          </form>
+          <a href="#" class="forgot-password">
+              Olvidaste la contraseña?
+          </a>
       </div>
-    </nav>
-    <main role="main">
-      <section class="jumbotron text-center">
-        <div class="m-5">
-          <h1></h1>
-        </div>
-      </section>
-      <div class="album py-5 bg-light">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <a href="categories.html" class="card mb-4 shadow-sm custom-card">
-                <img class="bd-placeholder-img card-img-top"  src="img/cat1.jpg">
-                <h3 class="m-3">Autos (122)</h3>
-                <div class="card-body">
-                  <p class="card-text">Los mejores precios en autos 0 kilómetro, de alta y media gama.</p>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-4">
-                <a href="categories.html" class="card mb-4 shadow-sm custom-card">
-                  <img class="bd-placeholder-img card-img-top" src="img/cat2.jpg">
-                  <h3 class="m-3">Juguetes (354)</h3>
-                  <div class="card-body">
-                    <p class="card-text">Encuentra aquí los mejores precios para niños/as de cualquier edad.</p>
-                  </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="categories.html" class="card mb-4 shadow-sm custom-card">
-                  <img class="bd-placeholder-img card-img-top" src="img/cat3.jpg">
-                  <h3 class="m-3">Muebles (157)</h3>
-                  <div class="card-body">
-                    <p class="card-text">Muebles antiguos, nuevos y para ser armados por uno mismo.</p>
-                  </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="categories.html" class="card mb-4 shadow-sm custom-card">
-                  <img class="bd-placeholder-img card-img-top" src="img/cat4.jpg">
-                  <h3 class="m-3">Herramientas (452)</h3>
-                  <div class="card-body">
-                    <p class="card-text">Herramientas para cualquier tipo de trabajo.</p>
-                  </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="categories.html" class="card mb-4 shadow-sm custom-card">
-                  <img class="bd-placeholder-img card-img-top" src="img/cat5.jpg">
-                  <h3 class="m-3">Computadoras (724)</h3>
-                  <div class="card-body">
-                    <p class="card-text">Todo en cuanto a computadoras, para uso de oficina y/o juegos.</p>
-                  </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="categories.html" class="card mb-4 shadow-sm custom-card">
-                  <img class="bd-placeholder-img card-img-top" src="img/cat6.jpg">
-                  <h3 class="m-3">Vestimenta (841)</h3>
-                  <div class="card-body">
-                    <p class="card-text">Gran variedad de ropa, nueva y de segunda mano.</p>
-                  </div>
-                </a>
-            </div>
-          </div>
-          <div class="row">
-              <a type="button" class="btn btn-light btn-lg btn-block" href="categories.html">Ver todas</a>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-right">
-          <a href="#">Volver arriba</a>
-        </p>
-        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-      </div>
-    </footer>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/init.js"></script>
-  </body>
+  </div>
+
+  <script src="js/init.js"></script>
+  <script src="js/login.js"></script>
+</body>
 </html>
