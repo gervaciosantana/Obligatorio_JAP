@@ -40,8 +40,15 @@ var getJSONData = function(url){
     });
 }
 
+function getUser(){
+  let email = localStorage.getItem("userEmail");
+  if(email != undefined && email !=""){
+    document.getElementById("emailUser").innerHTML +=" "+email;
+  }
+}
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+  getUser();
 });
