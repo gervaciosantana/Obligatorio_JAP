@@ -6,6 +6,7 @@ var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
 
+//Funcion que toma un criterio de ordenamiento y una lista
 function sortProducts(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_COST)
@@ -67,6 +68,8 @@ function showProductsList(){
     }
 
 }
+
+//Funcion para ordenar y mostrar la lista de productos
 function sortAndShowProducts(sortCriteria, productsArray){
     currentSortCriteria = sortCriteria;
 
@@ -79,6 +82,7 @@ function sortAndShowProducts(sortCriteria, productsArray){
     //Muestro los productos ordenados
     showProductsList();
 }
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
