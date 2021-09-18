@@ -58,7 +58,7 @@ function saveComment() {
     if(textComment != ''){ //Si el texto no esta vacio...
         
       let commentDataObj = {                      //creo un objeto con el mensaje y la fecha
-        dateTime: new Date().toISOString(),       //guardo fecha y hora del comentario
+        dateTime: new Date().toLocaleString(),    //guardo fecha y hora del comentario
         description: textComment ,                //obtener el mensaje del textarea
         user: localStorage.getItem('userEmail'),  //obtengo el usuario del localstorage
         score: document.querySelector('input[name="ratingValue"]:checked').value, //obtengo el rating marcado
