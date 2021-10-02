@@ -17,29 +17,51 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="py-2 d-none d-md-inline-block" href="my-profile.html" id="emailUser"></a>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top site-header">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto nav-fill">
+        <li class="nav-item">
+          <a class="nav-link mx-5" href="home.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-5" href="categories.html">Categorías</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link mx-5" href="products.html">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-5" href="sell.html">Vender</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mx-5" id="emailUser" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"></a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" onclick="logOut()">Cerrar sesión</a>
+          </div>
+        </li>
     </div>
   </nav>
+
   <main role="main">
     <div class="container mt-5">
       <div class="text-center p-4">
         <h2>Descripción del producto</h2>
         <p class="lead">Encontrarás aquí toda la información de este producto.</p>
       </div>
-      <h3 id="productName"></h3>
+      <h2 id="productName" class=""></h2>
       <hr class="my-3">
       <dt>Imágenes del producto</dt>
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImages">
-          </div>
-        </dd>
+      <dd>
+        <div class="row text-center text-lg-left pt-2" id="productImages">
+        </div>
+      </dd>
       <dl>
         <dt>Descripción:</dt>
         <dd>
@@ -57,17 +79,18 @@
         <dd>
           <p id="productSoldCount"></p>
         </dd>
-        <dt>Comentarios sobre el producto:</dt><br>
+        <dt>
+          <h4 class="text-center">Comentarios sobre el producto:</h4>
+        </dt><br>
         <dd>
           <div id="comments">
             <div id="ratings">
             </div>
-
           </div>
         </dd>
       </dl>
       <p><b>¿Que te parecio el producto?</b></p>
-      <form id="formComment"> 
+      <form id="formComment">
         <textarea name="" id="commentText" cols="50" rows="2" placeholder="Ingrese su comentario"></textarea>
         <p><b>Rating: </b>
           <label><input name="ratingValue" type="radio" value="1" required>★</label>
@@ -78,6 +101,12 @@
         </p>
       </form>
       <input type="button" value="Enviar" id="enviar" onclick="saveComment()">
+      <div>
+        <br>
+        <h4 class="text-center">Productos Relacionados:</h4>
+      </div><br>
+      <div id="recommendedProducts" class="row">
+      </div><br>
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
     </div>
   </main>
