@@ -37,8 +37,8 @@
           <a class="nav-link mx-5" href="sell.html">Vender</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mx-5" id="emailUser" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false"></a>
+          <a class="nav-link dropdown-toggle mx-5" id="emailUser" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"></a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
             <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
@@ -92,13 +92,13 @@
       <p><b>¿Que te parecio el producto?</b></p>
       <form id="formComment">
         <textarea name="" id="commentText" cols="50" rows="2" placeholder="Ingrese su comentario"></textarea>
-        <p><b>Rating: </b>
-          <label><input name="ratingValue" type="radio" value="1" required>★</label>
-          <label><input name="ratingValue" type="radio" value="2" required>★★</label>
-          <label><input name="ratingValue" type="radio" value="3" required>★★★</label>
-          <label><input name="ratingValue" type="radio" value="4" required>★★★★</label>
-          <label><input name="ratingValue" type="radio" value="5" required>★★★★★</label>
-        </p>
+        <div class="rating">
+          <input type="radio" name="ratingValue" value="5" id="5"><label for="5">☆</label>
+          <input type="radio" name="ratingValue" value="4" id="4"><label for="4">☆</label>
+          <input type="radio" name="ratingValue" value="3" id="3"><label for="3">☆</label>
+          <input type="radio" name="ratingValue" value="2" id="2"><label for="2">☆</label>
+          <input type="radio" name="ratingValue" value="1" id="1"><label for="1">☆</label>
+        </div>
       </form>
       <input type="button" value="Enviar" id="enviar" onclick="saveComment()">
       <div>
