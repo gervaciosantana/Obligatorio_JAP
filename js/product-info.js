@@ -1,6 +1,6 @@
-var arrayProductInfo = {};
-var arrayComments = {};
-var arrayProductsList = {};
+var arrayProductInfo = [];
+var arrayComments = [];
+var arrayProductsList = [];
 
 function showProductImages(array) {    //Funcion para mostrar las imagenes del producto
 

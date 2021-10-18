@@ -54,8 +54,8 @@
           <a class="nav-link mx-5" href="sell.html">Vender</a>
         </li>
         <li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle mx-5" id="emailUser" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false"></a>
+          <a class="nav-link dropdown-toggle mx-5" id="emailUser" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"></a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
             <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
@@ -65,23 +65,75 @@
         </li>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega:
-        14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
+  <main role="main" class="pb-5">
+    <div>
+      <div class="container mt-5">
+        <div class="text-center p-4">
+          <h2>Tu carrito</h2>
+        </div>
+        <div id="carrito">
+          <div>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Subtotal</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody id="prodEnCarrito">
+              </tbody>
+            </table>
+          </div>
+          <div class="d-flex">
+            <hr class="my-3">
+            <div class="w-100" id="envio">
+              <div class="d-flex flex-shrink-1">
+                <div class="card text-center" style="width: 40rem;">
+                  <div class="card-body">
+                    <h5 class="card-title"><b>Datos de envio:</b></h5>
+                    <label><b>Direccion: </b><input type="text" class="form-control" style="max-width: 30em;"
+                        required></label>
+                    <label><b>Pais: </b><input type="text" class="form-control" style="max-width: 30em;"
+                        required></label>
+                    <div>
+                      <select class="custom-select" style="max-width: 30em;">
+                        <option selected>- Elija metodo de envio -</option>
+                        <option value="premium">Premium (2-5 dias) - Costo del 15% sobre el subtotal</option>
+                        <option value="express">Express (5-8 dias) - Costo del 7% sobre el subtotal</option>
+                        <option value="standard">Standard (12-15 dias) - Costo del 5% sobre el subtotal</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><br>
+            <div class="d-flex flex-shrink-1">
+              <div class="card text-right" style="width: 25rem;">
+                <div class="card-body">
+                  <h5 class="card-title" ><b>Resumen de compra:</b></h5>
+                  <p class="card-text" id="total">Total: UYU </p>
+                  <p class="card-text" id="costDeEnvio">Costo de envio: </p>
+                  <p class="card-text" id="precioFinal">Precio final: </p>
+                  <a href="#" class="btn btn-primary">Finalizar compra</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="spinner-wrapper">
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
