@@ -2,6 +2,8 @@ const URLcart = "https://japdevdep.github.io/ecommerce-api/cart/654.json"
 var cartProducts = [];
 var subtotalesArray = [];
 var totalValue = 0;
+
+
 function showCartProducts() {           //Funcion para generar HTML de cada producto
 
     let htmlContentToShow2 = "";
@@ -12,8 +14,8 @@ function showCartProducts() {           //Funcion para generar HTML de cada prod
         <td><img src="${articles.src}" class="img-fluid rounded" style ="max-width:55px !important"></td>
         <td>${articles.name}</td>
         <td>${articles.currency} ${articles.unitCost}</td>
-        <td><input class="form-control" style="max-width: 4em;" type="number" id="${i}" min=1 value=${articles.count} onchange="updateProductsSubtotals(this.value, ${articles.unitCost}, '${articles.currency}', ${i})"></td>
-        <td id="subtotal${i}"><span id="currency${i}">${articles.currency}</span><span id="subT${i}">${articles.unitCost * articles.count}</span></td>
+        <td><input class="form-control" style="max-width: 4em;" type="number" id="${i}" min=1 value=${articles.count} onchange="updateProductsSubtotals(this.value, ${articles.unitCost}, ${i})"></td>
+        <td><span id="currency${i}">${articles.currency}</span><span id="subtotal${i}">${articles.unitCost * articles.count}</span></td>
         <td><button type="button" class="close" aria-label="Close" onclick=""> <span aria-hidden="true">&times;</span> </button></td>
         </tr>
         `
@@ -21,39 +23,24 @@ function showCartProducts() {           //Funcion para generar HTML de cada prod
     };
 
     document.getElementById("prodEnCarrito").innerHTML = htmlContentToShow2;
-    showTotal();
+    updateTotal();
+
 
 };
 
 
-function showTotal() {                                               //Funcion para mostrar el total y convertir a moneda UYU
+function updateTotal() {                                                  //Funcion para actulizar el total
+    let totalValue = 0;
 
     for (let i = 0; i < cartProducts.length; i++) {
-        prodSubtotal = parseFloat(document.getElementById(`subT${i}`).innerHTML)
 
+        let prodSubtotal = parseFloat(document.getElementById(`subtotal${i}`).innerHTML)
 
         totalValue += parseFloat(changeCurrency(prodSubtotal, i))
 
     }
 
-    document.getElementById(`total`).innerHTML += totalValue;
-
-
-}
-
-function updateTotal() {                                                  //Funcion para actulizar el total   (No funciona de momento)
-    let totalValue = 0;
-
-    for (let i = 0; i < cartProducts.length; i++) {
-
-        prodSubtotal2 = parseFloat(document.getElementById(`subT${i}`).innerHTML)
-
-        totalValue += parseFloat(changeCurrency(prodSubtotal2, i))
-
-    }
-
-    document.getElementById(`total`).innerHTML += totalValue;
-
+    document.getElementById(`total`).innerHTML = 'Total: UYU' + totalValue;
 
 }
 
@@ -68,16 +55,23 @@ function changeCurrency(subtotal, id) {                                   //Func
 }
 
 
-function updateProductsSubtotals(cant, unitCost, currency, id) {         //Funcion para actulizar el valor del subtotal de acuerdo a la cantidad
+function updateProductsSubtotals(cant, unitCost, id) {         //Funcion para actulizar el valor del subtotal y total de acuerdo a la cantidad
     let subtotal = cant * unitCost;
 
-    document.getElementById(`subtotal${id}`).innerHTML = currency + ' ' + subtotal
-    updateTotal()
+
+    document.getElementById(`subtotal${id}`).innerHTML = subtotal
+    updateTotal();
 }
+
 
 
 function showShippingCost() {
 
+
+};
+
+
+function deleteItem(){
 
 };
 
@@ -87,7 +81,7 @@ function showShippingCost() {
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
 
-    getJSONData(URLcart).then(resultObj => {
+    getJSONData(URLcart).then(resultObj => {        //Obtengo los productos que estan en el carrito
         cartProducts = resultObj.data.articles;
         showCartProducts();
     });

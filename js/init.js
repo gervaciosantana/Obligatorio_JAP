@@ -41,14 +41,14 @@ var getJSONData = function (url) {
 }
 
 function getUser() {
-  let email = localStorage.getItem("userEmail");
-  if (email != undefined && email != "") {
-    document.getElementById("emailUser").innerHTML += " " + email;
+  let user = localStorage.getItem("userName");
+  if (user != undefined && user != "") {
+    document.getElementById("nameUser").innerHTML = " " + user;
   }
 }
 
 function logOut() {
-  localStorage.removeItem("inputEmail");
+  localStorage.removeItem("inputUser");
 
   window.location.href = "index.html"
 }
